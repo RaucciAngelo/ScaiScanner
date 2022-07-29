@@ -10,9 +10,4 @@ import com.example.demo.models.PrenotationFlight;
 @Repository
 public interface PrenotationFlightRepo extends JpaRepository<PrenotationFlight, Long> {
 
-    @Query(value = "SELECT idPrenotation FROM PrenotationFlight WHERE id = :id", nativeQuery = true)
-    Long getPrenotationId(@Param("id") Long id);
-
-    @Query(value = "SELECT idFlight FROM PrenotationFlight WHERE id = :id", nativeQuery = true)
-    Long getFlightId(@Param("id") Long id);
 }
