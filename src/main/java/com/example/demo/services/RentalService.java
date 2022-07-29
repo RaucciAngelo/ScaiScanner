@@ -29,10 +29,9 @@ public class RentalService {
 		
 	}
 	
-	@SuppressWarnings("deprecation")
 	public void updateRental(Long id, Rental rental) {
 		Rental rentalUser = new Rental();
-		rentalUser = rentalRepo.getById(id);
+		rentalUser = rentalRepo.getReferenceById(id);
 		rentalUser.setCity(rental.getCity());
 		rentalUser.setDailyPrice(rental.getDailyPrice());
 		rentalUser.setEndTimeDate(rental.getEndTimeDate());
@@ -42,7 +41,7 @@ public class RentalService {
 		rentalUser.setNumberOfSeats(rental.getNumberOfSeats());
 		rentalUser.setOptional(rental.getOptional());
 		rentalUser.setPrenRental(rental.getPrenRental());
-		rentalUser.setPrice(rental.getPrice());
+		rentalUser.setBuyPrice(rental.getBuyPrice());
 		rentalUser.setShift(rental.getShift());
 		rentalUser.setStartTimeDate(rental.getStartTimeDate());
 		rentalRepo.save(rentalUser);	

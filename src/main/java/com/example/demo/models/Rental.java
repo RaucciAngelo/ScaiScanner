@@ -25,7 +25,7 @@ public class Rental {
 	private int numberOfBags;
 	private String optional;
 	private String dailyPrice;
-	private String price;
+	private double buyPrice;
 	private Shift shift;
 	
 	@OneToMany(mappedBy="prenotation")
@@ -34,8 +34,8 @@ public class Rental {
 	public Rental() {}
 	
 	public Rental(String locality, String city, String startTimeDate, String endTimeDate, int numberOfSeats,
-			int numberOfPorts, int numberOfBags, String optional, String dailyPrice, String price, Shift shift,
-			List<PrenotationRental> prenRental) {
+				  int numberOfPorts, int numberOfBags, String optional, String dailyPrice, double buyPrice, Shift shift,
+				  List<PrenotationRental> prenRental) {
 	
 		this.locality = locality;
 		this.city = city;
@@ -46,7 +46,7 @@ public class Rental {
 		this.numberOfBags = numberOfBags;
 		this.optional = optional;
 		this.dailyPrice = dailyPrice;
-		this.price = price;
+		this.buyPrice = buyPrice;
 		this.shift = shift;
 		this.prenRental = prenRental;
 	}
@@ -131,12 +131,12 @@ public class Rental {
 		this.dailyPrice = dailyPrice;
 	}
 
-	public String getPrice() {
-		return price;
+	public double getBuyPrice() {
+		return buyPrice;
 	}
 
-	public void setPrice(String price) {
-		this.price = price;
+	public void setBuyPrice(double buyPrice) {
+		this.buyPrice = buyPrice;
 	}
 
 	public Shift getShift() {

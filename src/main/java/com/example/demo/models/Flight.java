@@ -21,7 +21,7 @@ public class Flight {
 	private boolean oneWay;
 	private String arrivalTime;
 	private String flightTime;
-	private Float price;
+	private double buyPrice;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Flight idFlight;
@@ -29,7 +29,7 @@ public class Flight {
 	public Flight() {}
 
 	public Flight(Long id, String departureCity, String arrivalCity, String seat, String departureTime,
-			String flightCompany, boolean oneWay, String arrivalTime, String flightTime, Float price) {
+			String flightCompany, boolean oneWay, String arrivalTime, String flightTime, double buyPrice) {
 		super();
 		this.id = id;
 		this.departureCity = departureCity;
@@ -40,7 +40,7 @@ public class Flight {
 		this.oneWay = oneWay;
 		this.arrivalTime = arrivalTime;
 		this.flightTime = flightTime;
-		this.price = price;
+		this.buyPrice = buyPrice;
 	}
 
 	public Long getId() {
@@ -115,12 +115,12 @@ public class Flight {
 		this.flightTime = flightTime;
 	}
 
-	public Float getPrice() {
-		return price;
+	public double getBuyPrice() {
+		return buyPrice;
 	}
 
-	public void setPrice(Float price) {
-		this.price = price;
+	public void setBuyPrice(double buyPrice) {
+		this.buyPrice = buyPrice;
 	}
 
 
