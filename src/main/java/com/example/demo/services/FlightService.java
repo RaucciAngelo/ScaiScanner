@@ -42,7 +42,7 @@ public class FlightService {
 		updateFlight.setArrivalTime(flight.getArrivalTime());
 		updateFlight.setFlightCompany(flight.getFlightCompany());
 		updateFlight.setSeat(flight.getSeat());
-		updateFlight.setPrice(flight.getPrice());
+		updateFlight.setBuyPrice(flight.getBuyPrice());
 		flightRepo.save(updateFlight);
 	}
 	

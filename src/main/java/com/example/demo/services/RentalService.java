@@ -42,7 +42,7 @@ public class RentalService {
 		rentalUser.setNumberOfSeats(rental.getNumberOfSeats());
 		rentalUser.setOptional(rental.getOptional());
 		rentalUser.setPrenRental(rental.getPrenRental());
-		rentalUser.setPrice(rental.getPrice());
+		rentalUser.setBuyPrice(rental.getBuyPrice());
 		rentalUser.setShift(rental.getShift());
 		rentalUser.setStartTimeDate(rental.getStartTimeDate());
 		rentalRepo.save(rentalUser);	
