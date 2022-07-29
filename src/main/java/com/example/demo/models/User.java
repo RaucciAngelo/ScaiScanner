@@ -1,6 +1,7 @@
 package com.example.demo.models;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -18,6 +19,12 @@ public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+  private String name;
+  private String surname;
+  private String taxcode;
+
+  @OneToMany(mappedBy = "user")
+  private List<Prenotation> prenotationList;
 
   @NotBlank
   @Size(max = 20)
@@ -47,12 +54,55 @@ public class User {
     this.password = password;
   }
 
+  public User(String name, String surname, String taxcode, List<Prenotation> prenotationList, String username, String email, String password, Set<Role> roles) {
+    this.name = name;
+    this.surname = surname;
+    this.taxcode = taxcode;
+    this.prenotationList = prenotationList;
+    this.username = username;
+    this.email = email;
+    this.password = password;
+    this.roles = roles;
+  }
+
   public Long getId() {
     return id;
   }
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public String getSurname() {
+    return surname;
+  }
+
+  public void setSurname(String surname) {
+    this.surname = surname;
+  }
+
+  public String getTaxcode() {
+    return taxcode;
+  }
+
+  public void setTaxcode(String taxcode) {
+    this.taxcode = taxcode;
+  }
+
+  public List<Prenotation> getPrenotationList() {
+    return prenotationList;
+  }
+
+  public void setPrenotationList(List<Prenotation> prenotationList) {
+    this.prenotationList = prenotationList;
   }
 
   public String getUsername() {
