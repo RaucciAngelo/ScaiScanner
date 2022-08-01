@@ -24,13 +24,13 @@ public class Prenotation {
 	private Review review;
 
 	@OneToMany(mappedBy = "prenotation")
-	private List<PrenotationRental> prenRental;
+	private List<PrenotationRental> rental;
 
 	@OneToMany(mappedBy = "flight")
-	private List<PrenotationFlight> prenFlight;
+	private List<PrenotationFlight> flight;
 
 	@OneToMany(mappedBy = "lodging")
-	private List<PrenotationLodging> prenLodging;
+	private List<PrenotationLodging> lodging;
 
 	@ManyToOne
 	@JoinColumn(name = "prenotation_id")
@@ -52,6 +52,46 @@ public class Prenotation {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public Review getReview() {
+		return review;
+	}
+
+	public void setReview(Review review) {
+		this.review = review;
+	}
+
+	public List<PrenotationRental> getRental() {
+		return rental;
+	}
+
+	public void setRental(List<PrenotationRental> rental) {
+		this.rental = rental;
+	}
+
+	public List<PrenotationFlight> getFlight() {
+		return flight;
+	}
+
+	public void setFlight(List<PrenotationFlight> flight) {
+		this.flight = flight;
+	}
+
+	public List<PrenotationLodging> getLodging() {
+		return lodging;
+	}
+
+	public void setLodging(List<PrenotationLodging> lodging) {
+		this.lodging = lodging;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }

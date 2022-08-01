@@ -42,6 +42,6 @@ public class PrenotationController {
 
 	@PutMapping("/updatePrenotation/{id}")
 	public void update(@PathVariable("id") Long id, @RequestBody Prenotation prenotation) {
-		prenservice.updateBimbi(id, prenotation);
+		prenservice.update(id, prenotation);
 	}
 }

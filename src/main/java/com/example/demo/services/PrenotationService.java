@@ -15,7 +15,6 @@ public class PrenotationService {
 	private PrenotationRepo prenRepo;
 
 	public List<Prenotation> getAllPrenotation() {
-		// TODO Auto-generated method stub
 		return prenRepo.findAll();
 	}
 
@@ -27,12 +26,11 @@ public class PrenotationService {
 		prenRepo.deleteById(id);
 	}
 
-	@SuppressWarnings("deprecation")
-	public void updateBimbi(Long id, Prenotation prenotation) {
+	public void update(Long id, Prenotation prenotation) {
 		Prenotation update = new Prenotation();
-		update = prenRepo.getById(id);
-		update.setIdReview(update.getIdReview());
-		update.setIdUser(update.getId());
+		update = prenRepo.getReferenceById(id);
+		update.setReview(update.getReview());
+		update.setUser(update.getUser());
 		prenRepo.save(update);
 
 	}
