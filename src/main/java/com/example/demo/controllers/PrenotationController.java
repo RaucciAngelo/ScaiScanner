@@ -18,7 +18,7 @@ import com.example.demo.services.PrenotationService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/prenotation")
 public class PrenotationController {
 
 	@Autowired
@@ -29,9 +29,9 @@ public class PrenotationController {
 		return prenservice.getAllPrenotation();
 	}
 
-	@PostMapping("/addNewPrenotation/{id}")
-	public void add(@RequestBody Prenotation prenotation, @PathVariable("id") Long id) {
-		prenservice.save(prenotation, id);
+	@PostMapping("/addPrenotation/{idUser}/{idReview}")
+	public void add(@PathVariable("idUser") Long idUser, @PathVariable("idReview") Long idReview) {
+		prenservice.save(idUser, idReview);
 
 	}
 
@@ -40,8 +40,8 @@ public class PrenotationController {
 		prenservice.delete(id);
 	}
 
-	@PutMapping("/updatePrenotation/{id}")
-	public void update(@PathVariable("id") Long id, @RequestBody Prenotation prenotation) {
-		prenservice.update(id, prenotation);
+	@PutMapping("/updatePrenotation/{idPrenotation}/{idUser}/{idReview}")
+	public void update(@PathVariable("idPrenotation") Long idPrenotation, @PathVariable("idUser") Long idUser, @PathVariable("idReview") Long idReview) {
+		prenservice.update(idPrenotation, idUser, idReview);
 	}
 }
