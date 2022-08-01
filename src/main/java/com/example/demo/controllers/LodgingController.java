@@ -18,7 +18,7 @@ import com.example.demo.services.LodgingService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/lodging")
 public class LodgingController {
 	
 	@Autowired

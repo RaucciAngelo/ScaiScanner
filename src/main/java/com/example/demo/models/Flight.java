@@ -1,11 +1,16 @@
 package com.example.demo.models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Flight {
@@ -23,13 +28,15 @@ public class Flight {
 	private String flightTime;
 	private double buyPrice;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Flight idFlight;
+	@JsonIgnore
+	@OneToMany(mappedBy = "flight")
+	private List<PrenotationFlight> prenotation;
 
-	public Flight() {}
+	public Flight() {
+	}
 
-	public Flight(String departureCity, String arrivalCity, String seat, String departureTime,
-			String arrivalTime, String flightCompany, boolean oneWay, String flightTime, double buyPrice) {
+	public Flight(String departureCity, String arrivalCity, String seat, String departureTime, String arrivalTime,
+			String flightCompany, boolean oneWay, String flightTime, double buyPrice) {
 		super();
 		this.departureCity = departureCity;
 		this.arrivalCity = arrivalCity;
@@ -121,7 +128,5 @@ public class Flight {
 	public void setBuyPrice(double buyPrice) {
 		this.buyPrice = buyPrice;
 	}
-
-
 
 }

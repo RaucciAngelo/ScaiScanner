@@ -12,7 +12,7 @@ import com.example.demo.services.PrenotationRentalService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/PrenotationRental")
+@RequestMapping("/api/prenotationRental")
 public class PrenotationRentalController {
 
 	@Autowired

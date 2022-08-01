@@ -18,7 +18,7 @@ import com.example.demo.services.ReviewService;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@RequestMapping("/api/auth")
+@RequestMapping("/api/review")
 public class ReviewController {
 
 	@Autowired
@@ -29,9 +29,9 @@ public class ReviewController {
 		return revservice.getAll();
 	}
 
-	@PostMapping("/addNewReview/{id}")
-	public void addNewReview(@RequestBody Review review, @PathVariable("id") Long id) {
-		revservice.save(review, id);
+	@PostMapping("/addReview")
+	public void addNewReview(@RequestBody Review review) {
+		revservice.save(review);
 	}
 
 	@DeleteMapping("/deleteReview/{id}")

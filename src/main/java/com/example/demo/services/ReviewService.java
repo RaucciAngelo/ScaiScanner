@@ -15,11 +15,10 @@ public class ReviewService {
 	public ReviewRepo revrepo;
 
 	public List<Review> getAll() {
-		// TODO Auto-generated method stub
 		return revrepo.findAll();
 	}
 
-	public void save(Review review, Long id) {
+	public void save(Review review) {
 		revrepo.save(review);
 	}
 
@@ -27,10 +26,9 @@ public class ReviewService {
 		revrepo.deleteById(id);
 	}
 
-	@SuppressWarnings("deprecation")
 	public void update(Long id, Review review) {
 		Review update = new Review();
-		update = revrepo.getById(id);
+		update = revrepo.getReferenceById(id);
 		update.setDescription(update.getDescription());
 	}
 }
