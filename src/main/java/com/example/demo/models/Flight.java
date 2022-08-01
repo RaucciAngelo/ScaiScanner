@@ -17,9 +17,9 @@ public class Flight {
 	private String arrivalCity;
 	private String seat;
 	private String departureTime;
+	private String arrivalTime;
 	private String flightCompany;
 	private boolean oneWay;
-	private String arrivalTime;
 	private String flightTime;
 	private double buyPrice;
 	
@@ -28,10 +28,9 @@ public class Flight {
 
 	public Flight() {}
 
-	public Flight(Long id, String departureCity, String arrivalCity, String seat, String departureTime,
-			String flightCompany, boolean oneWay, String arrivalTime, String flightTime, double buyPrice) {
+	public Flight(String departureCity, String arrivalCity, String seat, String departureTime,
+			String arrivalTime, String flightCompany, boolean oneWay, String flightTime, double buyPrice) {
 		super();
-		this.id = id;
 		this.departureCity = departureCity;
 		this.arrivalCity = arrivalCity;
 		this.seat = seat;

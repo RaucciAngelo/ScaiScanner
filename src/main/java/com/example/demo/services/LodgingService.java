@@ -19,7 +19,7 @@ public class LodgingService {
 	}
 
 	public void saveLodging(Lodging lodging) {
-		lodging = new Lodging(lodging.getNameHotel(), lodging.getLocation(), lodging.getVote(), lodging.getStars(), lodging.getTipology(), lodging.getCheckIn(), lodging.getCheckOut(), lodging.getServices(), lodging.getAvailability(), lodging.getDescription(), lodging.getPrice(), lodging.getCity());
+		lodging = new Lodging(lodging.getNameHotel(), lodging.getLocation(), lodging.getCity(), lodging.getVote(), lodging.getStars(), lodging.getTipology(), lodging.getCheckIn(), lodging.getCheckOut(), lodging.getServices(), lodging.getAvailability(), lodging.getDescription(), lodging.getPrice());
 		lodgingRepo.save(lodging);
 	}
 

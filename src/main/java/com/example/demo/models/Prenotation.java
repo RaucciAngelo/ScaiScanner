@@ -19,11 +19,8 @@ public class Prenotation {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	private Long idUser;
-	private Long idReview;
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "idReview")
+	@OneToOne
+	@JoinColumn(name = "review_id")
 	private Review review;
 
 	@OneToMany(mappedBy = "prenotation")
@@ -43,10 +40,10 @@ public class Prenotation {
 		super();
 	}
 
-	public Prenotation(Long idUser, Long idReview) {
+	public Prenotation(User user, Review review) {
 		super();
-		this.idUser = idUser;
-		this.idReview = idReview;
+		this.user = user;
+		this.review = review;
 	}
 
 	public Long getId() {
@@ -55,22 +52,6 @@ public class Prenotation {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Long getIdUser() {
-		return idUser;
-	}
-
-	public void setIdUser(Long idUser) {
-		this.idUser = idUser;
-	}
-
-	public Long getIdReview() {
-		return idReview;
-	}
-
-	public void setIdReview(Long idReview) {
-		this.idReview = idReview;
 	}
 
 }

@@ -18,25 +18,29 @@ public class Rental {
 	private Long id;
 	private String locality;
 	private String city;
+	private String carBrand;
+	private String carName;
 	private String startTimeDate;
 	private String endTimeDate;
 	private int numberOfSeats;
 	private int numberOfPorts;
 	private int numberOfBags;
 	private String optional;
-	private String dailyPrice;
+	private double dailyPrice;
 	private double buyPrice;
 	private Shift shift;
-	
-	@OneToMany(mappedBy="prenotation")
+
+	@OneToMany(mappedBy = "prenotation")
 	private List<PrenotationRental> prenRental;
 
-	public Rental() {}
-	
-	public Rental(String locality, String city, String startTimeDate, String endTimeDate, int numberOfSeats,
-				  int numberOfPorts, int numberOfBags, String optional, String dailyPrice, double buyPrice, Shift shift,
-				  List<PrenotationRental> prenRental) {
-	
+	public Rental() {
+	}
+
+	public Rental(String carBrand, String carName, String locality, String city, String startTimeDate, String endTimeDate, int numberOfSeats,
+			int numberOfPorts, int numberOfBags, String optional, double dailyPrice, double buyPrice, Shift shift) {
+
+		this.carBrand = carBrand;
+		this.carName = carName;
 		this.locality = locality;
 		this.city = city;
 		this.startTimeDate = startTimeDate;
@@ -48,15 +52,30 @@ public class Rental {
 		this.dailyPrice = dailyPrice;
 		this.buyPrice = buyPrice;
 		this.shift = shift;
-		this.prenRental = prenRental;
 	}
-
+	
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getCarBrand() {
+		return carBrand;
+	}
+
+	public void setCarBrand(String carBrand) {
+		this.carBrand = carBrand;
+	}
+
+	public String getCarName() {
+		return carName;
+	}
+
+	public void setCarName(String carName) {
+		this.carName = carName;
 	}
 
 	public String getLocality() {
@@ -123,11 +142,11 @@ public class Rental {
 		this.optional = optional;
 	}
 
-	public String getDailyPrice() {
+	public double getDailyPrice() {
 		return dailyPrice;
 	}
 
-	public void setDailyPrice(String dailyPrice) {
+	public void setDailyPrice(double dailyPrice) {
 		this.dailyPrice = dailyPrice;
 	}
 
@@ -154,5 +173,5 @@ public class Rental {
 	public void setPrenRental(List<PrenotationRental> prenRental) {
 		this.prenRental = prenRental;
 	}
-	
+
 }

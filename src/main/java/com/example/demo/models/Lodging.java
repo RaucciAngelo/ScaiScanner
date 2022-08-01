@@ -19,16 +19,16 @@ public class Lodging {
 	private Long id;
 	private String nameHotel;
 	private String location;
-	private Double vote;
+	private String city;
+	private double vote;
 	private int stars;
 	private String tipology;
 	private String checkIn;
 	private String checkOut;
 	private String services;
-	private String availability;
+	private int availability;
 	private String description;
-	private Float price;
-	private String city;
+	private double price;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy = "lodging")
@@ -37,8 +37,8 @@ public class Lodging {
 	public Lodging() {
 		super();
 	}
-	public Lodging(String nameHotel, String location, Double vote, int stars, String tipology, String checkIn,
-			String checkOut, String services, String availability, String description, Float price, String city) {
+	public Lodging(String nameHotel, String location, String city, double vote, int stars, String tipology, String checkIn,
+			String checkOut, String services, int availability, String description, double price) {
 		super();
 		this.nameHotel = nameHotel;
 		this.location = location;
@@ -71,10 +71,10 @@ public class Lodging {
 	public void setLocation(String location) {
 		this.location = location;
 	}
-	public Double getVote() {
+	public double getVote() {
 		return vote;
 	}
-	public void setVote(Double vote) {
+	public void setVote(double vote) {
 		this.vote = vote;
 	}
 	public int getStars() {
@@ -107,10 +107,10 @@ public class Lodging {
 	public void setServices(String services) {
 		this.services = services;
 	}
-	public String getAvailability() {
+	public int getAvailability() {
 		return availability;
 	}
-	public void setAvailability(String availability) {
+	public void setAvailability(int availability) {
 		this.availability = availability;
 	}
 	public String getDescription() {
@@ -119,10 +119,10 @@ public class Lodging {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Float getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(Float price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	public String getCity() {
