@@ -9,13 +9,15 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("/getAllRegisteredUsers")
+    @GetMapping("/getAllUsers")
     public List<User> getAllRegisteredUsers() {
         return userService.getAllUsers();
     }

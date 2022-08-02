@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.example.demo.enumeration.Shift;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Rental {
@@ -30,6 +31,7 @@ public class Rental {
 	private double buyPrice;
 	private Shift shift;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "prenotation")
 	private List<PrenotationRental> prenRental;
 

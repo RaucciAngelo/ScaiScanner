@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Prenotation {
 
@@ -19,16 +21,20 @@ public class Prenotation {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name = "review_id")
 	private Review review;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "prenotation")
 	private List<PrenotationRental> rental;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "flight")
 	private List<PrenotationFlight> flight;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "lodging")
 	private List<PrenotationLodging> lodging;
 

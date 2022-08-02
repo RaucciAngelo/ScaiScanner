@@ -9,6 +9,8 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "users", uniqueConstraints = { @UniqueConstraint(columnNames = "username"),
 		@UniqueConstraint(columnNames = "email") })
@@ -20,6 +22,7 @@ public class User {
 	private String surname;
 	private String taxcode;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "user")
 	private List<Prenotation> prenotationList;
 
